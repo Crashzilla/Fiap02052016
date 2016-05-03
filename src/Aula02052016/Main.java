@@ -1,6 +1,7 @@
 package Aula02052016;
 
 import java.awt.List;
+import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -11,54 +12,31 @@ public class Main {
 	
 	public static void main (String[] args){
 	
-		ArrayList<Integer> arrayList = new ArrayList<>();
-		LinkedList <Integer> linkedList = new LinkedList<>();
-		LocalDateTime inicio = LocalDateTime.now();
-		int tamanho = 1_000_000;
+		ArrayList<Cliente> ListaCliente = new ArrayList<>();
+		LocalDate agore = LocalDate.now()
 		
 		
-		for (int i=0; i<tamanho; i++){
-			arrayList.add(i);
-		}
+		Cliente cliente1 = new Cliente("João", 22, true, Date(2016, 01, 10));
+		Cliente cliente2 = new Cliente("Pedro", 65, true, Date(2015, 12, 23));
+		Cliente cliente3 = new Cliente("Carlos", 48, true, Date(2011, 01, 29));
+		Cliente cliente4 = new Cliente("Paulo", 33, true, Date(2007, 07, 12));
+		Cliente cliente5 = new Cliente("André", 62, true, Date(2013, 10, 31));
 		
-		LocalDateTime fim = LocalDateTime.now();
+		ListaCliente.add(cliente1);
+		ListaCliente.add(cliente2);
+		ListaCliente.add(cliente3);
+		ListaCliente.add(cliente4);
+		ListaCliente.add(cliente5);
 		
-		long tempoInsercao = ChronoUnit.MILLIS.between(inicio, fim);
+		ListaCliente.stream()
+			.filter(c -> c.getPrimeiraCompra())
 		
-		System.out.println("tempo de inserção Array: "+tempoInsercao);
 		
-		inicio = LocalDateTime.now();
 		
-		for (int i=0; i<tamanho; i++){
-			
-				linkedList.add(1);
-		}
-		
-		fim = LocalDateTime.now();
-		
-		tempoInsercao = ChronoUnit.MILLIS.between(inicio, fim);
-		
-		System.out.println("tempo de inserção Linked: "+tempoInsercao);
-		
-		inicio = LocalDateTime.now();
-		
-		arrayList.get(500000);
-		
-		fim = LocalDateTime.now();
-		
-		tempoInsercao = ChronoUnit.MILLIS.between(inicio, fim);
-		
-		System.out.println("tempo de busca Array: "+tempoInsercao);
-		
-		inicio = LocalDateTime.now();
-		
-		linkedList.get(500000);
-		
-		fim = LocalDateTime.now();
-		
-		tempoInsercao = ChronoUnit.MILLIS.between(inicio, fim);
-		
-		System.out.println("tempo de busca Linked: "+tempoInsercao);
-		
+	}
+
+	private static Date Date(int i, int j, int k) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
